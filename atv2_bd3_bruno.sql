@@ -1,0 +1,35 @@
+create database  atv2_bd3_bruno;
+
+use atv2_bd3_bruno;
+create table tbl_turma (
+cod_turma 	int unsigned auto_increment primary key,
+sigla 		varchar(10),
+nome 		varchar(100)
+
+);
+
+create table tbl_disciplina (
+cod_disciplinas int unsigned auto_increment primary key,
+cod_turma 		int unsigned not null, 
+sigla 			varchar(50)
+
+);
+
+create table tbl_alunos (
+cod_aluno 				int unsigned auto_increment primary key,
+cod_turma 				int unsigned not null, 
+nome 					varchar(100),
+cpf						varchar(11),
+rg 						varchar(9),
+telefone_aluno			varchar(11),
+telefone_responsavel 	varchar(11),
+email 					varchar(100),
+data_nascimento			TIMESTAMP
+);
+
+create table tbl_frequencia(
+cod_aluno  			int unsigned not null, 
+cod_disciplinas 	int unsigned not null,
+data_chamada 		timestamp,
+frequencia 			decimal(2,2)
+);
